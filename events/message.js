@@ -32,7 +32,7 @@ async function forwardServerMessage(msg) {
 async function forwardDirectMessage(msg, client) {
   console.log('DM')
   try {
-    const sent = msg.reply('This is what a bot would reply')
+    const sent = await msg.reply('This is what a bot would reply')  //placeholder text
   const guild = client.guilds.cache.get(process.env.serverID);
   if (!guild) return;
   const channel = guild.channels.cache.get(process.env.channelID);

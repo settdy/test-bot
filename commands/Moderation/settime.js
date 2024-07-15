@@ -49,6 +49,7 @@ module.exports = {
       var remarks = interaction.options.getString("remarks") || "No additional remarks"; 
       if (remarks != 'No additional remarks') { remarks = `Remarks: ${remarks}`}
       const date = interaction.options.getString("date");
+      const time = interaction.options.getString("time");
       const buttons = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
           .setLabel('Post?')
@@ -60,7 +61,6 @@ module.exports = {
           new EmbedBuilder()
           .setTitle('Double check your inputs')
           .setDescription(`Next Meeting Details:\n Date: ${date} at ${time}\n Venue: ${venue} \n ${remarks}`)
-          .setFooter('Press Post to ping everyone and post the message')
         ],
         components: [buttons],
         ephemeral: true,
@@ -87,7 +87,7 @@ module.exports = {
                 new EmbedBuilder()
                   .setTitle('New Meeting')
                   .setTimestamp(Date.now())
-                  .setDescription(`Our next meeting will be at on ${formattedDate} at ${venue}\n ${remarks}`)
+                  .setDescription(`Our next meeting will be at on ${date} at ${venue}\n ${remarks}`)
                 .setColor('Blue')
               ]
             });
